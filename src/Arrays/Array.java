@@ -29,17 +29,17 @@ public class Array {
      * 2020/01/18
      * */
 
-    public int[] leftRotation(int[] array){
-        int a = array.length;
-        int d = 3;
-       int[] trunArray = Arrays.copyOfRange(array, 0, d);
-        int[] tempArray = new int[array.length];
-        int j = 0;
-        for(int i = d; i < array.length; i++ ){
-            tempArray[j] = array[i];
-            j++;
-        }
-    }
+//    public int[] leftRotation(int[] array){
+//        int a = array.length;
+//        int d = 3;
+//       int[] trunArray = Arrays.copyOfRange(array, 0, d);
+//        int[] tempArray = new int[array.length];
+//        int j = 0;
+//        for(int i = d; i < array.length; i++ ){
+//            tempArray[j] = array[i];
+//            j++;
+//        }
+//    }
 
     public void hfhf(String p){
         p.split("[A-Za-z !,?._'@]+");
