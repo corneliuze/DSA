@@ -58,9 +58,7 @@ public class Array {
         int maxSum = 0, sum = 0;
         for (int i = 1; i < arr.length - 1  ; i++) {
             for (int j = 1; j < arr.length - 1  ; j++) {
-                sum = arr[i - 1][j-1] + arr[i - 1][j] + arr[i-1][j+1]
-                        + arr[i][j]
-                        + arr[i + 1][j - 1]  + arr[i + 1][j] + arr[i + 1][j + 1];
+                sum = getAnIntFromHourGlass(arr, i, j);
                 if (sum > maxSum) maxSum = sum ;
             }
         }
