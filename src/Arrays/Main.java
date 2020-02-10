@@ -11,7 +11,7 @@ public class Main {
                 {-9, -9, -9, 1, 2, 3}, {0, 0, 8, 6, 6, 0},
                 {0, 0, 0, -2, 0, 0}, {0, 0, 1, 2, 4, 0}});
 
-        int[] res = a.leftRotation(new int[] {1,2,3,4,5,6});
+        int[] res = a.leftRotation(new int[] {1,2,3,4,5,6}, 3);
 
         System.out.println("result is %s, p" + Arrays.toString(res));
     }
