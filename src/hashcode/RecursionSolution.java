@@ -1,5 +1,8 @@
 package hashcode;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class RecursionSolution {
 
     public RecursionSolution() {
@@ -51,9 +54,9 @@ public class RecursionSolution {
 
 
     public void isPalindrome(char[] s) {
-        if (palidromeHelper(s, 0, s.length - 1)){
+        if (palidromeHelper(s, 0, s.length - 1)) {
             System.out.print("yes");
-        }else {
+        } else {
             System.out.print("nah");
         }
     }
@@ -71,6 +74,22 @@ public class RecursionSolution {
             return palidromeHelper(s, front + 1, end - 1);
         }
         return true;
+    }
+
+    HashMap<Integer, Integer> cache = new HashMap<Integer, Integer>();
+
+    public Integer calculateFibonacci(int n) {
+        if (cache.containsKey(n)) {
+            return cache.get(n);
+        }
+        int result;
+        if (n < 2) {
+            result = n;
+        } else {
+            result = calculateFibonacci(n - 1) + calculateFibonacci(n - 2);
+        }
+        cache.put(n, result);
+        return result;
     }
 
 }
