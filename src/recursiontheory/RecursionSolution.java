@@ -1,7 +1,6 @@
-package hashcode;
+package recursiontheory;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class RecursionSolution {
 

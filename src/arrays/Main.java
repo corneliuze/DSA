@@ -1,6 +1,6 @@
-package Arrays;
+package arrays;
 
-import hashcode.RecursionSolution;
+import recursiontheory.RecursionSolution;
 import stacks_queues.Stacks;
 
 public class Main {
