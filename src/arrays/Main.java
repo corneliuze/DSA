@@ -10,7 +10,7 @@ public class Main {
         int[] p = a.twoSumSortedArray(new int[]{2, 7, 11, 15}, 9);
         int[] input = new int[]{4,2,2,7,8,1,2,8,10};
         int newExample = a.removeElement(new int[]{0,1,2,2,3,0,4,2}, 2);
-        int removeDuplicates = a.removeDuplicates(new int[] {0,0,1,1,1,2,2,3,3,4});
+        int removeDuplicates = a.removeElement(new int[] {2}, 3);
         int targetSum = 8;
         int dd  = a.smallestSubArray( targetSum, input);
         String str = "geg";

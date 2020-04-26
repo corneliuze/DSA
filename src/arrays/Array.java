@@ -136,14 +136,14 @@ public class Array {
     /**
      * smallest sub array problem.
      */
-    public  int smallestSubArray(int targetSum, int[] array) {
+    public int smallestSubArray(int targetSum, int[] array) {
         int windowStart = 0;
         int minSubValue = Integer.MAX_VALUE;
         int currentWindowSum = 0;
 
-        for(int windowEnd = 0; windowEnd < array.length; windowEnd++){
+        for (int windowEnd = 0; windowEnd < array.length; windowEnd++) {
             currentWindowSum += array[windowEnd];
-            if(currentWindowSum >= targetSum){
+            if (currentWindowSum >= targetSum) {
                 minSubValue = Math.min(currentWindowSum, windowEnd - windowStart + 1);
                 windowStart++;
             }
@@ -155,84 +155,85 @@ public class Array {
      * max sum of sub array
      */
 
-    public int maxSubArray(int[] array, int k){
+    public int maxSubArray(int[] array, int k) {
         int maxValue = Integer.MIN_VALUE;
         int currentSumValue = 0;
 
-        for (int i = 0; i < array.length; i++){
+        for (int i = 0; i < array.length; i++) {
             currentSumValue += array[i];
-            if (i >= k - 1){
+            if (i >= k - 1) {
                 maxValue = Math.max(currentSumValue, maxValue);
                 currentSumValue -= array[i - k - 1];
             }
         }
-        return  currentSumValue;
+        return currentSumValue;
     }
 
-    /**-----------------------End for that day-------------------/
-
     /**
+     * -----------------------End for that day-------------------/
+     * <p>
+     * /**
      * 17th April, 2020
      * remove element from an array
      * https://leetcode.com/problems/remove-element/
      */
 
-//    public int removeElement(int[] nums, int val){
-//        int end = nums.length - 1;
-//        int count = 0;
-//        int start = 0;
-//
-//        while(start < end){
-//            for (int i = 0; i < nums.length; i++){
-//                start = i;
-//                if (nums[i] == val && nums[end] == val){
-//
-//                }
-//            }
-//
-//        }
-//
-//    }
-
-    public int removeElement(int[] nums, int val)
-    {
-        int i=0, j = nums.length-1;
-        while(i<=j)
-        {
-            if(nums[i]==val)
-                nums[i]=nums[j--];
+    public int removeElement(int[] nums, int val) {
+        int i = 0, j = nums.length - 1;
+        while (i <= j) {
+            if (nums[i] == val)
+                nums[i] = nums[j--];
             else
                 i++;
         }
-        return j+1;
+        return j + 1;
     }
 
 
     /**
-     * 26. Remove Duplicates from Sorted Array
-     *https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+     * 26. Merge Sorted Array
+     * https://leetcode.com/problems/merge-sorted-array/
      */
 
-    public int removeDuplicates(int[] sums){
-            int count = 0;
-            Map<Integer, Integer> hashMap = new HashMap<>();
-            for(int i = 0; i < sums.length; i++){
-                if(!hashMap.containsKey(sums[i])) {
-                    hashMap.put(sums[i], i);
-                    count ++;
-                }
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int index1 = m - 1;
+        int index2 = n - 1 ;
+
+        for(int  i = (m + n - 1); i >= 0; i--) {
+            if(index1 < 0) {
+                nums1[i] = nums2[i];
             }
-            return count;
+            else if (index2 >= 0) {
+                nums1[i] = ( nums1[index1] > nums2[index2] ) ? nums1[index1--] : nums2[index2--];
+            }
         }
+    }
 
 
-    private void ArrayUtilsSwapMethod(int[] array, int left, int right){
+    /**
+     * Optimized
+     * 26. Remove Duplicates from Sorted Array
+     * https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+     */
+
+    public int removeDuplicates(int[] nums) {
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if(nums[i] != nums[j]) {
+                nums[i + 1] = nums[j];
+                i++;
+            }
+        }
+        return i+1;
+    }
+
+
+
+    private void ArrayUtilsSwapMethod(int[] array, int left, int right) {
         int temp = array[left];
         array[left] = array[right];
         array[right] = temp;
     }
-
-
 
 
 }

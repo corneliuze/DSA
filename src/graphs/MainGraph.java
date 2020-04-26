@@ -1,6 +1,6 @@
 package graphs;
 
-public class Main {
+public class MainGraph {
 
     public static void main(String[] args){
         Graph graph = new Graph(5, false, true);
