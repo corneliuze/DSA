@@ -8,6 +8,7 @@ public class Main {
         Array a = new Array();
         Stacks s = new Stacks();
         int[] p = a.twoSumSortedArray(new int[]{2, 7, 11, 15}, 9);
+
         int[] input = new int[]{4,2,2,7,8,1,2,8,10};
         int newExample = a.removeElement(new int[]{0,1,2,2,3,0,4,2}, 2);
         int removeDuplicates = a.removeElement(new int[] {2}, 3);
