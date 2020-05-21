@@ -2,7 +2,7 @@ public class Sorting {
 
     public static void main(String[] args) {
         Sorting sorting = new Sorting();
-        sorting.insertionSort(new int[]{64, 34, 25, 12, 22, 11, 90});
+        sorting.quickSort(new int[]{64, 34, 25, 12, 22, 11, 90});
     }
 
     public Sorting() {
@@ -20,15 +20,19 @@ public class Sorting {
         for (int i = 0; i < length - 1; i++) {
             for (int j = 0; j < length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+                    swap(arr, j, j + 1);
                     swapped = true;
                 }
             }
             if (swapped == false) break;
         }
         printArray(arr);
+    }
+
+    private void swap(int[] arr, int j, int i2) {
+        int temp = arr[j];
+        arr[j] = arr[i2];
+        arr[i2] = temp;
     }
 
     public void selectionSort(int arr[]) {
@@ -38,9 +42,7 @@ public class Sorting {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[min]) min = j;
             }
-            int temp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = temp;
+            swap(arr, i, min);
         }
         printArray(arr);
     }
@@ -60,6 +62,45 @@ public class Sorting {
         printArray(arr);
     }
 
+    public void mergeSort(int[] arr) {
+        int n = arr.length;
+        if (n < 2) return;
+        int mid = n / 2;
+        int[] l = new int[mid];
+        int[] r = new int[n - mid];
+        for (int i = 0; i < mid; i++) {
+            l[i] = arr[i];
+        }
+        for (int i = mid; i < n; i++) {
+            r[i - mid] = arr[i];
+        }
+        mergeSort(l);
+        mergeSort(r);
+        merge(arr, l, r);
+        printArray(arr);
+    }
+
+    private void merge(int[] arr, int[] l, int[] r) {
+        int left = l.length;
+        int right = r.length;
+
+        int i = 0, j = 0, k = 0;
+
+        while (i < left && j < right) {
+            if (l[i] < r[j]) {
+                arr[k++] = l[i++];
+            } else {
+                arr[k++] = r[j++];
+            }
+        }
+        while (i < left) {
+            arr[k++] = l[i++];
+        }
+        while (j < right) {
+            arr[k++] = r[j++];
+        }
+    }
+
 
     void printArray(int arr[]) {
         int n = arr.length;
@@ -69,6 +110,40 @@ public class Sorting {
     }
 
 
-    //TODO : WRITE CODE FOR MERGE SORT, REVISIT OLD SORTS, LEARN QUICK SORT
+    // LEARN QUICK SORT
+
+    public void quickSort(int[] arr) {
+        sort(arr, 0, arr.length - 1);
+    }
+
+
+    public void sort(int[] arr, int start, int end) {
+        if (start >= end) {
+          return;
+        }
+        int pivot = arr[(start + end) / 2];
+        int index = partition(arr, start, end, pivot);
+        sort(arr, start, index - 1);
+        sort(arr, index, end);
+        printArray(arr);
+    }
+
+    private int partition(int[] arr, int start, int end, int pivot) {
+        while (start <= end) {
+            while (arr[start] < pivot) {
+                start++;
+            }
+            while (arr[end] > pivot) {
+                end--;
+            }
+            if (start <= end) {
+                swap(arr, start, end);
+                start++;
+                end--;
+            }
+        }
+        return start;
+    }
+
 
 }
