@@ -1,8 +1,6 @@
 package arrays;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Author Falaye Iyanuoluwa
@@ -48,8 +46,113 @@ public class Array {
     public void hfhf(String p) {
         p.split("[A-Za-z !,?._'@]+");
 
+    }
+
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<Integer, List<String>> map = new HashMap<>();
+        for(String s : strs) {
+            int value = 0;
+            for(int i = 0; i < s.length(); i++){
+                value += s.charAt(i);
+            }
+            if(!map.containsKey(value)) map.put(value, new ArrayList<>());
+            map.get(value).add(s);
+        }
+        return new ArrayList(map.values());
 
     }
+
+    public int[] intersect(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
+        for (int i : nums1) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        for (int n = 0; n < nums2.length; n++) {
+            boolean t =  map.containsKey(nums2[n]);
+            if (map.containsKey(nums2[n])) {
+               int kk = map.get(nums2[n]);
+                if (map.get(nums2[n]) > 0) {
+                    list.add(nums2[n]);
+                    map.put(nums2[n], map.get(nums1[n]) - 1);
+                    int kkk = map.get(nums2[n]);
+
+                }
+            }
+        }
+
+        int[] ans = new int[list.size()];
+        for (int i = 0; i < list.size(); i++)
+            ans[i] = list.get(i);
+        return ans;
+
+    }
+
+
+    public boolean isValidSudoku(String[][] board) {
+        if (board == null || board.length != 9 || board[0].length != 9) // check base case
+            return false;
+        HashSet<String> hs = new HashSet<>();
+
+        // for each 3x3 matrix
+
+        for(int block=0;block<9;block++) // will iterate 9 times
+        {
+            for(int i=(block/3)*3;i<((block/3)*3) + 3;i++) // find the each blocks starting & ending row index
+            {
+                for(int j=(block%3)*3;j<((block%3)*3) + 3;j++) // find the each blocks starting & ending column index
+                {
+                    if(board[i][j] != ".")
+                    {
+                        if(hs.add(board[i][j]) == false)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            hs.clear();
+        }
+
+        // For row
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+            {
+                if(board[i][j] != ".") // if we find '.' the ignore this
+                {
+                    if(hs.add(board[i][j]) == false) // Else check the character is already present or not(in set)
+                    {
+                        return false;
+                    }
+                }
+            }
+            hs.clear();
+        }
+        // For column
+        for(int i=0;i<9;i++)
+        {
+            for(int j=0;j<9;j++)
+            {
+                if(board[j][i] != ".")
+                {
+                    if(hs.add(board[j][i]) == false)
+                    {
+                        return false;
+                    }
+                }
+            }
+            hs.clear();
+        }
+
+
+        return true;
+    }
+
+
+
+
 
     /**
      * @2D Array - DS

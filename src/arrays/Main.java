@@ -3,11 +3,30 @@ package arrays;
 import recursiontheory.RecursionSolution;
 import stacks_queues.Stacks;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Array a = new Array();
         Stacks s = new Stacks();
+
+        System.out.println((a.isValidSudoku(new String[][]{
+                {"5", "3", ".", ".", "7", ".", ".", ".", "."},
+        {"6", ".", ".", "1", "9", "5", ".", ".", "."},
+            {".", "9", "8", ".", ".", ".", ".", "6", "."},
+                {"8", ".", ".", ".", "6", ".", ".", ".", "3"},
+                    {"4", ".", ".", "8", ".", "3", ".", ".", "1"},
+                        {"7", ".", ".", ".", "2", ".", ".", ".", "6"},
+                            {".", "6", ".", ".", ".", ".", "2", "8", "."},
+                                {".", ".", ".", "4", "1", "9", ".", ".", "5"},
+                                    {".", ".", ".", ".", "8", ".", ".", "7", "9"}
+})));
+
+
+
+
         int[] p = a.twoSumSortedArray(new int[]{2, 7, 11, 15}, 9);
+
 
         int[] input = new int[]{4,2,2,7,8,1,2,8,10};
         int newExample = a.removeElement(new int[]{0,1,2,2,3,0,4,2}, 2);
@@ -32,6 +51,8 @@ public class Main {
         int ans = s.isTheSameHeight(new int[]{1}, new int[]{1}, new int[]{1});
 
         System.out.println("result is " + " " + removeDuplicates);
+
+
     }
 
 }

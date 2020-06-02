@@ -18,13 +18,14 @@ public class Sorting {
         int length = arr.length;
         boolean swapped = false;
         for (int i = 0; i < length - 1; i++) {
+            //TODO : so j < length - i - 1 because the last item in the array is sorted so we are going last - 1 after the inner the loop
             for (int j = 0; j < length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j + 1);
                     swapped = true;
                 }
             }
-            if (swapped == false) break;
+            if (!swapped) break;
         }
         printArray(arr);
     }
@@ -39,6 +40,7 @@ public class Sorting {
         int length = arr.length;
         for (int i = 0; i < length - 1; i++) {
             int min = i;
+            // TODO : lie, I wanted yellow. okay  so J = i + 1 because the ith index would be sorted after the inner loop is done.
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[min]) min = j;
             }
@@ -110,7 +112,6 @@ public class Sorting {
     }
 
 
-    // LEARN QUICK SORT
 
     public void quickSort(int[] arr) {
         sort(arr, 0, arr.length - 1);
