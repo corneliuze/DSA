@@ -1,3 +1,5 @@
+package sorting;
+
 public class Sorting {
 
     public static void main(String[] args) {
@@ -6,6 +8,7 @@ public class Sorting {
     }
 
     public Sorting() {
+
     }
 
     /**
