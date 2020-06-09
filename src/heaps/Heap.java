@@ -1,5 +1,7 @@
 package heaps;
 
+import java.util.Arrays;
+
 public class Heap {
     private int[] arr;
     int largest = 0;
@@ -7,7 +9,10 @@ public class Heap {
 //new int{3,2,1,5,6,4}
     public static void main(String[] args) {
         Heap h = new Heap(6);
-        System.out.println("ans : " + h.findKthLargest(new int[] {2,1}, 2));
+        HeapProblem hh = new HeapProblem();
+
+        h.findKthLargest(new int[] {2,1}, 2);
+        System.out.println("ans : " + Arrays.toString(hh.topKFrequent(new int[]{4, 5, 5, 2, 1, 1, 1, 5, 2, 3, 3, 5, 2}, 3)));
     }
 
     public Heap(int size) {
