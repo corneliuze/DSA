@@ -24,7 +24,7 @@ public class Stack {
 
     public void push(int data) {
         if (top >= arr.length - 1) {
-            System.out.println("Stack is full");
+            System.out.println("Stack is Overflowing");
         } else {
             arr[++top] = data;
         }
@@ -32,7 +32,7 @@ public class Stack {
 
     public int pop() {
         if (top <= -1) {
-            System.out.println("Stack is Empty");
+            System.out.println("Stack is Underflowing");
             return -1;
         } else {
             return arr[top--];
@@ -50,5 +50,12 @@ public class Stack {
         } else {
             return arr[top];
         }
+    }
+
+    public boolean isEmpty() {
+        if (top == -1)  {
+            return true;
+        }
+        return false;
     }
 }
