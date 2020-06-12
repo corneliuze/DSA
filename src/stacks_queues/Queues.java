@@ -7,7 +7,14 @@ public class Queues {
 
 
     public static void main(String[] args) {
-
+        Queues queues = new Queues();
+        queues.enqueue(1);
+        System.out.println(queues.dequeue());
+        queues.enqueue(3);
+        queues.enqueue(2);
+        queues.enqueue(1);
+        System.out.println(queues.dequeue());
+        System.out.println(queues.dequeue());
     }
 
     public Queues(){
