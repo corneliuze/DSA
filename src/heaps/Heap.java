@@ -6,7 +6,7 @@ public class Heap {
     private int[] arr;
     int largest = 0;
 
-//new int{3,2,1,5,6,4}
+//     new int{3,2,1,5,6,4}
     public static void main(String[] args) {
         Heap h = new Heap(6);
         HeapProblem hh = new HeapProblem();
